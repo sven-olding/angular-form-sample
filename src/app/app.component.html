@@ -90,6 +90,28 @@
             >
           </div>
         </div>
+        <label for="gender">Gender</label>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              ngModel
+              [value]="gender"
+              required
+            />
+            {{ gender }}
+          </label>
+        </div>
+        <span
+          class="help-block"
+          *ngIf="
+            f.controls.genders &&
+            !f.controls.genders.valid &&
+            f.controls.genders.touched
+          "
+          >Please enter a gender!</span
+        >
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
           Submit
         </button>

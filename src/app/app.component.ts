@@ -8,6 +8,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent {
   @ViewChild('f') signupForm: ElementRef;
   questionAnswer = '';
+  genders = ['male', 'female', 'other'];
 
   suggestUserName() {
     const suggestedName = 'Superuser';
