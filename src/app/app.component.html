@@ -15,7 +15,11 @@
             />
             <span
               class="help-block"
-              *ngIf="!f.controls.username.valid && f.controls.username.touched"
+              *ngIf="
+                f.controls.username &&
+                !f.controls.username.valid &&
+                f.controls.username.touched
+              "
               >Please enter a valid username!</span
             >
           </div>
@@ -35,7 +39,11 @@
             />
             <span
               class="help-block"
-              *ngIf="!f.controls.email.valid && f.controls.email.touched"
+              *ngIf="
+                f.controls.email &&
+                !f.controls.email.valid &&
+                f.controls.email.touched
+              "
               >Please enter a valid email!</span
             >
           </div>
@@ -54,7 +62,11 @@
           </select>
           <span
             class="help-block"
-            *ngIf="!f.controls.secret.valid && f.controls.secret.touched"
+            *ngIf="
+              f.controls.secret &&
+              !f.controls.secret.valid &&
+              f.controls.secret.touched
+            "
             >Please enter a valid secret!</span
           >
         </div>
@@ -69,6 +81,7 @@
           <span
             class="help-block"
             *ngIf="
+              f.controls.questionAnswer &&
               !f.controls.questionAnswer.valid &&
               f.controls.questionAnswer.touched
             "
