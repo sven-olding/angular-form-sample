@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -48,45 +48,47 @@
             >
           </div>
         </div>
-        <div class="form-group">
-          <label for="secret">Secret Questions</label>
-          <select
-            id="secret"
-            class="form-control"
-            ngModel
-            name="secret"
-            required
-          >
-            <option value="pet">Your first Pet?</option>
-            <option value="teacher">Your first teacher?</option>
-          </select>
-          <span
-            class="help-block"
-            *ngIf="
-              f.controls.secret &&
-              !f.controls.secret.valid &&
-              f.controls.secret.touched
-            "
-            >Please enter a valid secret!</span
-          >
-        </div>
-        <div class="form-group">
-          <textarea
-            class="form-control"
-            rows="3"
-            name="questionAnswer"
-            [(ngModel)]="questionAnswer"
-            required
-          ></textarea>
-          <span
-            class="help-block"
-            *ngIf="
-              f.controls.questionAnswer &&
-              !f.controls.questionAnswer.valid &&
-              f.controls.questionAnswer.touched
-            "
-            >Please enter an answer!</span
-          >
+        <div id="userSecret" ngModelGroup="userSecret">
+          <div class="form-group">
+            <label for="secret">Secret Questions</label>
+            <select
+              id="secret"
+              class="form-control"
+              ngModel
+              name="secret"
+              required
+            >
+              <option value="pet">Your first Pet?</option>
+              <option value="teacher">Your first teacher?</option>
+            </select>
+            <span
+              class="help-block"
+              *ngIf="
+                f.controls.secret &&
+                !f.controls.secret.valid &&
+                f.controls.secret.touched
+              "
+              >Please enter a valid secret!</span
+            >
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="3"
+              name="questionAnswer"
+              [(ngModel)]="questionAnswer"
+              required
+            ></textarea>
+            <span
+              class="help-block"
+              *ngIf="
+                f.controls.questionAnswer &&
+                !f.controls.questionAnswer.valid &&
+                f.controls.questionAnswer.touched
+              "
+              >Please enter an answer!</span
+            >
+          </div>
         </div>
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
           Submit
